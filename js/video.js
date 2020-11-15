@@ -7,10 +7,11 @@ window.addEventListener("load", function() {
 document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play Video");
 	video.play();
+	document.querySelector('#volume').innerHTML = video.volume*100 + '%';
 });
 
 document.querySelector("#pause").addEventListener("click", function() {
-	console.log('Puase Video');
+	console.log('Pause Video');
 	video.pause();
 });
 
@@ -28,12 +29,13 @@ document.querySelector('#faster').addEventListener('click', function() {
 
 document.querySelector('#skip').addEventListener('click', function() {
 	if (video.duration - video.currentTime > 5) {
-		video.currentTime += 5;
+		let current = video.currentTime += 5;
 	}
 	else {
 		video.currentTime = 0;
 		video.play();
 	}
+	// console.log(video.duration)
 	console.log('Current location: ' + video.currentTime);
 });
 
